@@ -1,5 +1,28 @@
 let currentLanguage = 'pt';
 
+function getLanguageFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang');
+    
+    if (lang === 'en' || lang === 'pt') {
+        return lang;
+    }
+    
+    const browserLang = navigator.language || navigator.userLanguage;
+    
+    if (browserLang.toLowerCase().startsWith('pt')) {
+        return 'pt';
+    }
+    
+    return 'en';
+}
+
+function updateURLLanguage(lang) {
+    const url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    window.history.replaceState({}, '', url);
+}
+
 function switchLanguage(lang) {
     currentLanguage = lang;
     
@@ -16,6 +39,7 @@ function switchLanguage(lang) {
     });
     
     document.documentElement.lang = lang;
+    updateURLLanguage(lang);
 }
 
 function createLeaf() {
@@ -111,7 +135,8 @@ function initializeFoxes() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.lang-btn[data-lang="pt"]').classList.add('active');
+    const initialLang = getLanguageFromURL();
+    switchLanguage(initialLang);
     
     initializeFoxes();
     
