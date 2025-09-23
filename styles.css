@@ -1,0 +1,582 @@
+:root {
+    --primary-dark: #0f0f0f;
+    --terracotta: #eb5e28;
+    --warm-beige: #cbc0ad;
+    --soft-cream: #f5f1e8;
+    --accent-purple: #63539C;
+    --muted-gold: #d4af37;
+    --text-light: #f5f1e8;
+    --text-muted: #a8988c;
+    --border-subtle: rgba(203, 192, 173, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--primary-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(235, 94, 40, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(99, 83, 156, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.main-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.language-switcher {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    gap: 2px;
+    background: transparent;
+    padding: 0;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+}
+
+.lang-btn {
+    padding: 6px 12px;
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    transition: width 0.3s ease;
+}
+
+.lang-btn:hover::after {
+    width: 100%;
+}
+
+.lang-btn:hover {
+    color: var(--terracotta);
+    background: rgba(235, 94, 40, 0.1);
+}
+
+.lang-btn.active {
+    color: var(--terracotta);
+    background: rgba(235, 94, 40, 0.15);
+}
+
+.gothic-header {
+    text-align: center;
+    margin: 80px 0 100px;
+    position: relative;
+}
+
+.header-decoration {
+    color: var(--terracotta);
+    font-size: 1.5rem;
+    opacity: 0.5;
+    margin: 20px 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.title {
+    font-family: 'Vidaloka', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--terracotta);
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--warm-beige);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+section {
+    margin: 80px 0;
+    padding: 60px 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    position: relative;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 30'%3E%3Cpath d='M0 15 C10 5, 20 5, 30 15 S50 25, 60 15 S80 5, 90 15 S110 25, 120 15 S140 5, 150 15 S170 25, 180 15 S200 5, 210 15 S230 25, 240 15 L250 15' stroke='%23cbc0ad' stroke-width='1.5' fill='none' opacity='0.4'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h2 {
+    font-family: 'Vidaloka', serif;
+    font-size: 2.5rem;
+    color: var(--terracotta);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: letter-spacing 0.3s ease;
+}
+
+h2:hover {
+    letter-spacing: 2px;
+}
+
+h2::after {
+    display: none;
+}
+
+.vaquinha-origin {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.vaquinha-image {
+    width: 350px;
+    height: auto;
+    margin: 20px auto 30px;
+    display: block;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+    filter: sepia(20%) saturate(1.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.vaquinha-image:hover {
+    transform: scale(1.05);
+    filter: sepia(10%) saturate(1.4);
+}
+
+.vaquinha-origin p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--warm-beige);
+    font-weight: 300;
+}
+
+.intro-section {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.intro-text p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--warm-beige);
+    font-weight: 300;
+}
+
+.secret-note {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(235, 94, 40, 0.05);
+    border-left: 2px solid var(--terracotta);
+    font-style: normal;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.secret-note:hover {
+    background: rgba(235, 94, 40, 0.08);
+    padding-left: 30px;
+}
+
+.donation-tracker {
+    text-align: center;
+}
+
+.donors-section {
+    text-align: center;
+}
+
+.donation-amounts {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 50px;
+}
+
+.amount-box {
+    padding: 40px 60px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: default;
+}
+
+.amount-box:hover {
+    border-color: var(--terracotta);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(235, 94, 40, 0.1);
+}
+
+.amount-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(235, 94, 40, 0.03));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.amount-box:hover::before {
+    opacity: 1;
+}
+
+.amount-box .amount {
+    transition: transform 0.3s ease;
+}
+
+.amount-box:hover .amount {
+    transform: scale(1.05);
+}
+
+.currency {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.amount {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--terracotta);
+    font-family: 'Vidaloka', serif;
+}
+
+.donors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.donor-card {
+    padding: 20px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.donor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(235, 94, 40, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.donor-card:hover::before {
+    left: 100%;
+}
+
+.donor-card:hover {
+    border-color: var(--terracotta);
+    transform: translateY(-2px);
+}
+
+.donor-name {
+    font-family: 'Vidaloka', serif;
+    color: var(--warm-beige);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.donor-amount {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--terracotta);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.payment-methods {
+    display: grid;
+    gap: 30px;
+}
+
+.payment-option {
+    padding: 30px;
+    background: transparent;
+    border-radius: 0;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.payment-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background: var(--terracotta);
+    transition: height 0.3s ease;
+}
+
+.payment-option:hover::before {
+    height: 100%;
+}
+
+.payment-option:hover {
+    border-color: var(--terracotta);
+    padding-left: 35px;
+}
+
+.payment-option h3 {
+    font-family: 'Vidaloka', serif;
+    color: var(--terracotta);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.payment-details {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.payment-details p {
+    margin: 8px 0;
+    font-family: 'Courier New', monospace;
+    color: var(--warm-beige);
+    font-size: 0.95rem;
+}
+
+.faq-item {
+    margin-bottom: 35px;
+    padding: 25px;
+    background: transparent;
+    border-radius: 0;
+    border-left: 1px solid var(--border-subtle);
+    padding-left: 30px;
+}
+
+.faq-item h3 {
+    font-family: 'Vidaloka', serif;
+    color: var(--terracotta);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.faq-item p, .faq-item ul {
+    line-height: 1.8;
+    color: var(--warm-beige);
+    font-weight: 300;
+}
+
+.faq-item ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.faq-item li::before {
+    content: '· ';
+    color: var(--terracotta);
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+#leaves-container {
+    display: none;
+}
+
+.fox-container {
+    display: none;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.payment-methods {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.disclaimer-section {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.4s; }
+section:nth-child(4) { animation-delay: 0.6s; }
+section:nth-child(5) { animation-delay: 0.8s; }
+section:nth-child(6) { animation-delay: 1s; }
+section:nth-child(7) { animation-delay: 1.2s; }
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .donation-amounts {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .amount-box {
+        padding: 30px 40px;
+    }
+    
+    .amount {
+        font-size: 2.2rem;
+    }
+    
+    section {
+        padding: 40px 0;
+        margin: 60px 0;
+    }
+    
+    .donors-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .intro-text p, .vaquinha-origin p {
+        font-size: 0.95rem;
+    }
+    
+    .amount {
+        font-size: 1.8rem;
+    }
+    
+    .amount-box {
+        padding: 25px 30px;
+    }
+    
+    .donors-list {
+        grid-template-columns: 1fr;
+    }
+    
+    section {
+        margin: 40px 0;
+    }
+    
+    .gothic-header {
+        margin: 50px 0 60px;
+    }
+}
