@@ -245,6 +245,19 @@ h2::after {
     text-align: center;
 }
 
+.donation-footer {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.donation-footer > p {
+    margin-bottom: 25px;
+    line-height: 1.4;
+    font-size: 1.05rem;
+    color: var(--warm-beige);
+    font-weight: 300;
+}
+
 .donation-amounts {
     display: flex;
     justify-content: center;
