@@ -1,72 +1,119 @@
 const gothicNames = [
-    "Dracula", "Carmilla", "Dorian Gray", "Victor Frankenstein", "The Raven",
+    // The Addams Family
+    "Wednesday Addams", "Morticia Addams", "Gomez Addams", "Fester Addams", "Pugsley Addams",
+    "Lurch", "Cousin Itt", "Grandmama Addams", "Thing T. Thing",
+    
+    // Classic Gothic Literature
+    "Count Dracula", "Frankenstein's Monster", "Victor Frankenstein", "Carmilla Karnstein", "Abraham Van Helsing",
+    "Mina Harker", "Count Orlok", "Dr. Henry Jekyll", "Edward Hyde", "Dorian Gray",
+    
+    // Tim Burton Films
+    "Edward Scissorhands", "Jack Skellington", "Sally Finkelstein", "Betelgeuse", "Lydia Deetz",
+    "Emily", "Sweeney Todd", "Mrs. Lovett", "Ichabod Crane", "Victor Van Dort",
+    
+    // The Munsters
+    "Herman Munster", "Lily Munster", "Grandpa Munster", "Eddie Munster",
+    
+    // Stephen King
+    "Carrie White", "Pennywise the Dancing Clown", "Regan MacNeil", "Samara Morgan",
+    
+    // Horror Icons (Film)
+    "Norman Bates", "Jason Voorhees", "Freddy Krueger", "Michael Myers", "Charles Lee Ray",
+    "Tiffany Valentine", "Damien Thorn", "Elvira, Mistress of the Dark", "Vampira",
+    
+    // Vampire Chronicles (Anne Rice)
+    "Lestat de Lioncourt", "Louis de Pointe du Lac", "Claudia",
+    
+    // The Crow
+    "Eric Draven",
+    
+    // Coraline
+    "Coraline Jones", "The Beldam",
+    
+    // Teen Titans / DC
+    "Rachel Roth",
+    
+    // Blade (Marvel)
+    "Eric Brooks",
+    
+    // Underworld
+    "Selene Corvinus",
+    
+    // Hotel Transylvania
+    "Mavis Dracula",
+    
+    // Dark Shadows
+    "Barnabas Collins",
+    
+    // Buffy & Angel Series
+    "William the Bloody", "Drusilla", "Angelus", "Buffy Summers", "Willow Rosenberg", "Cordelia Chase",
+    
+    // Sandman (Neil Gaiman)
+    "Death of the Endless", "Dream of the Endless", "Morpheus", "Delirium of the Endless", "Desire of the Endless", "Despair of the Endless",
+    "Destiny of the Endless", "Destruction of the Endless", "Lucienne", "Johanna Constantine",
+    
+    // Sabrina Series
+    "Lucifer Morningstar", "Sabrina Spellman", "Ambrose Spellman", "Prudence Blackwood", "Zelda Spellman",
+    "Hilda Spellman", "Lilith", "Hecate",
+    
+    // Harry Potter
+    "Bellatrix Lestrange", "Severus Snape", "Sirius Black", "Remus Lupin", "Luna Lovegood",
+    "Helena Ravenclaw", "The Bloody Baron", "Moaning Myrtle",
+    
+    // Alice in Wonderland
+    "The Mad Hatter",
+    
+    // Sherlock Holmes Stories
+    "Sherlock Holmes", "Professor James Moriarty", "Irene Adler", "Mycroft Holmes", "Mrs. Hudson",
+    
+    // Edgar Allan Poe Characters
     "Lenore", "Ligeia", "Morella", "Annabel Lee", "Roderick Usher",
-    "Madeline Usher", "Emily Grierson", "Heathcliff", "Catherine Earnshaw",
-    "Edward Rochester", "Bertha Mason", "Count Orlok", "Mina Harker",
-    "Jonathan Harker", "Van Helsing", "Lucy Westenra", "Renfield",
-    "Elizabeth Lavenza", "The Creature", "Dr. Jekyll", "Mr. Hyde",
-    "Sweeney Todd", "Mrs. Lovett", "Erik (Phantom)", "Christine Daaé",
-    "Raoul de Chagny", "Quasimodo", "Esmeralda", "Claude Frollo",
-    "Rebecca de Winter", "Mrs. Danvers", "Maxim de Winter", "The Woman in Black",
-    "Arthur Kipps", "Jennet Humfrye", "Norman Bates", "Carrie White",
-    "Jack Torrance", "Danny Torrance", "Pennywise", "Regan MacNeil",
-    "Father Merrin", "Damien Thorn", "Rosemary Woodhouse", "Guy Woodhouse",
-    "Morticia Addams", "Gomez Addams", "Wednesday Addams", "Pugsley Addams",
-    "Uncle Fester", "Lurch", "Thing", "Cousin Itt", "Herman Munster",
-    "Lily Munster", "Eddie Munster", "Grandpa Munster", "Marilyn Munster",
-    "Elvira", "Vampira", "Lydia Deetz", "Beetlejuice", "Edward Scissorhands",
-    "Sally (Nightmare)", "Jack Skellington", "Oogie Boogie", "Dr. Finkelstein",
-    "Emily (Corpse Bride)", "Victor Van Dort", "Victoria Everglot", "Lord Barkis",
-    "Coraline Jones", "Other Mother", "Other Father", "Wybie Lovat",
-    "Miss Spink", "Miss Forcible", "Mr. Bobinsky", "The Cat",
-    "Norman Babcock", "Aggie Prenderghast", "Neil Downe", "Courtney Babcock",
-    "Winnie Portley-Rind", "Eggs Trubshaw", "Fish", "Wheels", "Bucket"
+    "Madeline Usher", "Montresor", "Fortunato",
+    
+    // The Phantom of the Opera
+    "Erik Destler", "Christine Daaé", "Raoul de Chagny",
+    
+    // Gothic Musicians (Real People)
+    "Nick Cave", "Siouxsie Sioux", "Robert Smith", "Peter Murphy", "Rozz Williams",
+    
+    // Classic Horror Actors (Real People)
+    "Bela Lugosi", "Boris Karloff", "Vincent Price", "Christopher Lee", "Peter Cushing",
+    "Lon Chaney", "Max Schreck", "Theda Bara", "Conrad Veidt", "Udo Kier"
 ];
 
-let usedNames = [];
+const idToPseudonym = {
+    "1": "Wednesday Addams",
+};
+let nextNameIndex = 0;
 
-function getRandomGothicName() {
-    const availableNames = gothicNames.filter(name => !usedNames.includes(name));
-    
-    if (availableNames.length === 0) {
-        usedNames = [];
-        return getRandomGothicName();
+function getPseudonymForId(stringId) {
+    if (idToPseudonym[stringId]) {
+        return idToPseudonym[stringId];
     }
     
-    const randomIndex = Math.floor(Math.random() * availableNames.length);
-    const selectedName = availableNames[randomIndex];
-    usedNames.push(selectedName);
+    if (nextNameIndex >= gothicNames.length) {
+        const baseIndex = nextNameIndex % gothicNames.length;
+        const suffix = Math.floor(nextNameIndex / gothicNames.length) + 1;
+        const pseudonym = `${gothicNames[baseIndex]} ${suffix}`;
+        idToPseudonym[stringId] = pseudonym;
+        nextNameIndex++;
+        return pseudonym;
+    }
     
-    return selectedName;
+    const pseudonym = gothicNames[nextNameIndex];
+    idToPseudonym[stringId] = pseudonym;
+    nextNameIndex++;
+    
+    return pseudonym;
 }
 
-const donations = [
-    /*
-    {
-        pseudonym: "Dracula",
-        amount: 100.00,
-        currency: "EUR",
-        date: "2024-01-15"
-    },
-    {
-        pseudonym: "Morticia Addams",
-        amount: 500.00,
-        currency: "BRL",
-        date: "2024-01-16"
-    },
-    {
-        pseudonym: "Jack Skellington",
-        amount: 75.00,
-        currency: "EUR",
-        date: "2024-01-17"
-    }
-    */
-];
+const donations = [];
 
-function addDonation(realName, amount, currency) {
-    const pseudonym = getRandomGothicName();
+function addDonation(stringId, amount, currency) {
+    const pseudonym = getPseudonymForId(stringId);
+    
     const donation = {
-        realName: realName,
+        id: stringId,
         pseudonym: pseudonym,
         amount: amount,
         currency: currency,
@@ -82,15 +129,10 @@ function addDonation(realName, amount, currency) {
         displayDonors();
     }
     
-    console.log(`Added donation from ${realName} as ${pseudonym}: ${currency} ${amount}`);
+    console.log(`Added donation from ID ${stringId} as ${pseudonym}: ${currency} ${amount}`);
     
     return donation;
 }
 
-// addDonation("John Doe", 100, "EUR");
-// addDonation("Maria Silva", 500, "BRL");
-// addDonation("Peter Schmidt", 150, "EUR");
-// addDonation("Ana Costa", 300, "BRL");
-// addDonation("Michael Brown", 200, "EUR");
-// addDonation("Juliana Santos", 750, "BRL");
+addDonation("1", 150, "EUR");
 
