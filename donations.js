@@ -83,6 +83,7 @@ const gothicNames = [
 
 const idToPseudonym = {
     "1": "Wednesday Addams",
+    "2": "Anabel Lee"
 };
 let nextNameIndex = 0;
 
@@ -135,4 +136,5 @@ function addDonation(stringId, amount, currency) {
 }
 
 addDonation("1", 150, "EUR");
+addDonation("2", 300, "BRL");
 
