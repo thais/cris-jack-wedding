@@ -22,6 +22,8 @@ function addDonation(pseudonym, amount, currency) {
 }
 
 addDonation("Anabel Lee", 300, "BRL");
+addDonation("Jack Skellington", 1000, "EUR");
+addDonation("Sally Finkelstein", 1000, "EUR");
 
 addDonation("Carmilla Karnstein", 100, "EUR");
 addDonation("Morticia Addams", 130, "EUR");
@@ -53,8 +55,6 @@ addDonation("Fester Addams", 130, "EUR");
 //
 // // Tim Burton Films
 // "Edward Scissorhands",
-// "Jack Skellington",
-// "Sally Finkelstein",
 // "Betelgeuse",
 // "Lydia Deetz",
 // "Emily",
