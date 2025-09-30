@@ -22,13 +22,14 @@ function addDonation(pseudonym, amount, currency) {
 }
 
 addDonation("Anabel Lee", 300, "BRL");
-addDonation("Jack Skellington", 1000, "EUR");
-addDonation("Sally Finkelstein", 1000, "EUR");
+addDonation("Jack Skellington", 1000, "BRL");
+addDonation("Sally Finkelstein", 1000, "BRL");
 
 addDonation("Carmilla Karnstein", 100, "EUR");
 addDonation("Morticia Addams", 130, "EUR");
 addDonation("Wednesday Adams", 150, "EUR");
 addDonation("Fester Addams", 130, "EUR");
+addDonation("Edward Scissorhands", 150, "EUR");
 
 // Ghotic Names
 //
@@ -54,7 +55,6 @@ addDonation("Fester Addams", 130, "EUR");
 // "Dorian Gray",
 //
 // // Tim Burton Films
-// "Edward Scissorhands",
 // "Betelgeuse",
 // "Lydia Deetz",
 // "Emily",
