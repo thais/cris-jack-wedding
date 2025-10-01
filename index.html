@@ -1,78 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cris & Jack - Presente Coletivo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Quicksand:wght@300;400;500;600&family=Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Quicksand:wght@300;400;500;600&family=Sriracha&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="language-switcher">
-        <button onclick="switchLanguage('pt')" class="lang-btn" data-lang="pt">PT</button>
-        <button onclick="switchLanguage('en')" class="lang-btn" data-lang="en">EN</button>
+      <button onclick="switchLanguage('pt')" class="lang-btn" data-lang="pt">
+        PT
+      </button>
+      <button onclick="switchLanguage('en')" class="lang-btn" data-lang="en">
+        EN
+      </button>
     </div>
 
     <div id="leaves-container"></div>
-    
+
     <div class="main-container">
-        <header class="gothic-header">
-            <div class="header-decoration">✦</div>
-            <h1 class="title">
-                <span data-pt="Cris & Jack" data-en="Cris & Jack">Cris & Jack</span>
-            </h1>
-            <div class="subtitle" data-pt="Um Presente Coletivo" data-en="A Collective Gift">
-                Um Presente Coletivo
-            </div>
-            <div class="header-decoration">✦</div>
-        </header>
+      <header class="gothic-header">
+        <div class="header-decoration">✦</div>
+        <h1 class="title">
+          <span data-pt="Cris & Jack" data-en="Cris & Jack">Cris & Jack</span>
+        </h1>
+        <div
+          class="subtitle"
+          data-pt="Um Presente Coletivo"
+          data-en="A Collective Gift"
+        >
+          Um Presente Coletivo
+        </div>
+        <div class="header-decoration">✦</div>
+      </header>
 
-        <img src="vaquinha.png" alt="Vaquinha" class="vaquinha-image">
-        <section class="vaquinha-origin">
-            <h2 data-pt="A Origem da Vaquinha" data-en="The Origin of 'Vaquinha'">A Origem da Vaquinha</h2>
-            
-            <p data-pt="A palavra 'vaquinha' vem de uma tradição antiga do interior do Brasil, onde as pessoas se reuniam para comprar uma vaca juntas, dividindo os custos e depois a carne. Com o tempo, o termo passou a significar qualquer arrecadação coletiva para um objetivo comum." 
-               data-en="The word 'vaquinha' comes from an old tradition in rural Brazil, where people would gather to buy a cow together, sharing the costs and later the meat. Over time, the term came to mean any collective fundraising for a common goal.">
-                A palavra "vaquinha" vem de uma tradição antiga do interior do Brasil, onde as pessoas se reuniam para comprar uma vaca juntas, dividindo os custos e depois a carne. Com o tempo, o termo passou a significar qualquer arrecadação coletiva para um objetivo comum.
-            </p>
-            <div class="intro-text">
-                <p class="secret-note" data-pt="Ah, lembrando que o presente é uma surpresa que será entregue no dia do casamento. Agradecemos se não falarem nada para o casal 🤫"
-                   data-en="Oh, remembering that the gift is a surprise that will be delivered on the wedding day. We appreciate if you don't say anything to the couple 🤫">
-                    Ah, lembrando que o presente é uma surpresa que será entregue no dia do casamento. Agradecemos se não falarem nada para o casal 🤫
-                </p>
-            </div>
-        </section>
+      <img src="vaquinha.png" alt="Vaquinha" class="vaquinha-image" />
+      <section class="vaquinha-origin">
+        <h2 data-pt="A Origem da Vaquinha" data-en="The Origin of 'Vaquinha'">
+          A Origem da Vaquinha
+        </h2>
 
-        <section class="donation-tracker">
-            <h2 data-pt="Total Arrecadado" data-en="Total Collected">Total Arrecadado</h2>
-            <div class="donation-amounts">
-                <div class="amount-box">
-                    <div class="currency">BRL</div>
-                    <div class="amount" id="brl-amount">R$ 0,00</div>
-                </div>
-                <div class="amount-box">
-                    <div class="currency">EUR</div>
-                    <div class="amount" id="eur-amount">€ 0,00</div>
-                </div>
-            </div>
-        </section>
+        <p
+          data-pt="A palavra 'vaquinha' vem de uma tradição antiga do interior do Brasil, onde as pessoas se reuniam para comprar uma vaca juntas, dividindo os custos e depois a carne. Com o tempo, o termo passou a significar qualquer arrecadação coletiva para um objetivo comum."
+          data-en="The word 'vaquinha' comes from an old tradition in rural Brazil, where people would gather to buy a cow together, sharing the costs and later the meat. Over time, the term came to mean any collective fundraising for a common goal."
+        >
+          A palavra "vaquinha" vem de uma tradição antiga do interior do Brasil,
+          onde as pessoas se reuniam para comprar uma vaca juntas, dividindo os
+          custos e depois a carne. Com o tempo, o termo passou a significar
+          qualquer arrecadação coletiva para um objetivo comum.
+        </p>
+        <div class="intro-text">
+          <p
+            class="secret-note"
+            data-pt="Ah, lembrando que o presente é uma surpresa que será entregue no dia do casamento. Agradecemos se não falarem nada para o casal 🤫"
+            data-en="Oh, remembering that the gift is a surprise that will be delivered on the wedding day. We appreciate if you don't say anything to the couple 🤫"
+          >
+            Ah, lembrando que o presente é uma surpresa que será entregue no dia
+            do casamento. Agradecemos se não falarem nada para o casal 🤫
+          </p>
+        </div>
+      </section>
 
-        <section class="donors-section">
-            <h2 data-pt="Contribuidores" data-en="Contributors">Contribuidores</h2>
-            <div class="donors-list" id="donors-list"></div>
-        </section>
+      <section class="donation-tracker">
+        <h2 data-pt="Total Arrecadado" data-en="Total Collected">
+          Total Arrecadado
+        </h2>
+        <div class="donation-amounts">
+          <div class="amount-box">
+            <div class="amount" id="total-eur-amount">€ 0,00</div>
+          </div>
+        </div>
+      </section>
 
-        <footer class="donation-footer">
-            <p data-pt="Com ❤️ de todos os amigos" data-en="With ❤️ from all the friends">Com ❤️ de todos os amigos</p>
-        </footer>
+      <section class="donors-section">
+        <h2 data-pt="Contribuidores" data-en="Contributors">Contribuidores</h2>
+        <div class="donors-list" id="donors-list"></div>
+      </section>
 
+      <footer class="donation-footer">
+        <p
+          data-pt="Com ❤️  de todos os amigos"
+          data-en="With ❤️  from all the friends"
+        >
+          Com ❤️ de todos os amigos
+        </p>
+      </footer>
     </div>
 
     <div class="fox-container" id="fox-container"></div>
 
     <script src="donations.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
+

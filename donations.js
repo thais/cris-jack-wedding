@@ -21,14 +21,15 @@ function addDonation(pseudonym, amount, currency) {
   return donation;
 }
 
-addDonation("Anabel Lee", 300, "BRL");
-addDonation("Jack Skellington", 1000, "BRL");
-addDonation("Sally Finkelstein", 1000, "BRL");
+// NOTE: Add new donations at the bottom of the list.
 
+addDonation("Anabel Lee", 300, "BRL");
+addDonation("Wednesday Adams", 150, "EUR");
 addDonation("Carmilla Karnstein", 100, "EUR");
 addDonation("Morticia Addams", 130, "EUR");
-addDonation("Wednesday Adams", 150, "EUR");
 addDonation("Fester Addams", 130, "EUR");
+addDonation("Jack Skellington", 1000, "BRL");
+addDonation("Sally Finkelstein", 1000, "BRL");
 addDonation("Edward Scissorhands", 150, "EUR");
 
 // Ghotic Names

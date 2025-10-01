@@ -148,10 +148,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function updateDonationDisplay() {
     if (typeof donations === 'undefined') return;
-    
+
     let totalBRL = 0;
     let totalEUR = 0;
-    
+
     donations.forEach(donation => {
         if (donation.currency === 'BRL') {
             totalBRL += donation.amount;
@@ -159,11 +159,12 @@ function updateDonationDisplay() {
             totalEUR += donation.amount;
         }
     });
-    
-    document.getElementById('brl-amount').textContent = 
-        `R$ ${totalBRL.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    document.getElementById('eur-amount').textContent = 
-        `€ ${totalEUR.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    const BRL_TO_EUR_RATE = 6.2;
+    const totalInEUR = totalEUR + (totalBRL / BRL_TO_EUR_RATE);
+
+    document.getElementById('total-eur-amount').textContent =
+        `€ ${totalInEUR.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 function displayDonors() {
